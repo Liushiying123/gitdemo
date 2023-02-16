@@ -1,0 +1,20 @@
+//存放所有需要权限的路由，根据后端返回的名字，筛查出包含某角色那几项的路由
+export default[
+    {
+        path:"/attendance",
+        name:"Attendance",
+        meta:{auth:["boss","administration"]},
+        component:()=>import("@/views/AuthView/AuthAttendance")
+    },
+    {
+        path:"/salary",
+        name:"Salary",
+        meta:{auth:["boss","finance"]},
+        component:()=>import("@/views/AuthView/AuthSalary")
+    },
+    {
+        path:"*",
+        name:"NotFound",
+        component:()=>import("@/views/NotFound")
+      }
+]
